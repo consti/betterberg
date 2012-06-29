@@ -31,9 +31,11 @@
           <a class="brand" href="#">Betterberg</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Books", "/books"  %></li>
+              <li><%= link_to "Authors", "/authors"  %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Downloads", "/downloads"  %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -43,6 +45,7 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
+          <%= render 'layouts/messages' %>
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>

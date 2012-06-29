@@ -1,4 +1,6 @@
 class DownloadsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
+  
   # GET /downloads
   # GET /downloads.json
   def index
