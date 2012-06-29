@@ -1,0 +1,16 @@
+= form_for @download, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :url, :class => 'control-label'
+    .controls
+      = f.text_field :url, :class => 'text_field'
+  .control-group
+    = f.label :filetype, :class => 'control-label'
+    .controls
+      = f.text_field :filetype, :class => 'text_field'
+  .control-group
+    = f.label :book_id, :class => 'control-label'
+    .controls
+      = f.number_field :book_id, :class => 'number_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), downloads_path, :class => 'btn'
