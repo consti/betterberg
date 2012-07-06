@@ -11,10 +11,6 @@ gem 'awesome_print'
 gem 'haml-rails'
 gem 'haml'
 
-gem 'rdf', :git => 'git://github.com/ruby-rdf/rdf.git'
-gem 'rdf-rdfxml'
-gem 'equivalent-xml' #otherwise we get an annoying warning
-
 gem 'gutenberg', :git => 'git://github.com/consti/gutenberg.git'
 
 # Gems used only for assets and not required
