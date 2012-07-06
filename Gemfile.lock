@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/consti/gutenberg.git
+  revision: f40965afaf362567983421224dba5bb71fe2cd52
+  specs:
+    gutenberg (0.0.1)
+      rdf
+      rdf-rdfxml
+
+GIT
   remote: git://github.com/ruby-rdf/rdf.git
   revision: 29170682010e2fee353ee18d189850942434f975
   specs:
@@ -37,6 +45,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.8)
     arel (3.0.2)
+    awesome_print (1.0.2)
     backports (2.6.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
@@ -53,6 +62,8 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    equivalent-xml (0.2.9)
+      nokogiri (>= 1.4.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -117,7 +128,7 @@ GEM
       rdf (>= 0.3.4)
     rdoc (3.12)
       json (~> 1.4)
-    sass (3.1.19)
+    sass (3.1.20)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -128,7 +139,7 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     therubyracer (0.10.1)
       libv8 (~> 3.3.10)
-    thor (0.15.3)
+    thor (0.15.4)
     tilt (1.3.3)
     treetop (1.4.10)
       polyglot
@@ -149,8 +160,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   coffee-rails (~> 3.2.1)
   devise
+  equivalent-xml
+  gutenberg!
   haml
   haml-rails
   jquery-rails

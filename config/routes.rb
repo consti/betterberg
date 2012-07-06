@@ -1,4 +1,6 @@
 Betterberg::Application.routes.draw do
+  resources :publishers
+
   devise_for :users
 
   resources :downloads
