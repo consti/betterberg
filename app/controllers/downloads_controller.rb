@@ -1,5 +1,6 @@
 class DownloadsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :admin_only!, :except => [:show, :index]
   
   # GET /downloads
   # GET /downloads.json

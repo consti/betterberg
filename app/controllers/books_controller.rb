@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-
+  before_filter :admin_only!, :except => [:show, :index]
+  
   # GET /books
   # GET /books.json
   def index
