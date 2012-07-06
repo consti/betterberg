@@ -11,6 +11,8 @@ gem 'pg'
 gem 'haml-rails'
 gem 'haml'
 
+gem 'rdf', :git => 'git://github.com/ruby-rdf/rdf.git'
+gem 'rdf-rdfxml'
 
 # Gems used only for assets and not required
 # in production environments by default.
