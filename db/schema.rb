@@ -16,8 +16,13 @@ ActiveRecord::Schema.define(:version => 20120706223738) do
   create_table "authors", :force => true do |t|
     t.string   "name"
     t.string   "about"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.date     "birthdate"
+    t.date     "deathdate"
+    t.string   "alias"
+    t.string   "webpage"
+    t.integer  "gutenberg_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "books", :force => true do |t|
@@ -36,9 +41,11 @@ ActiveRecord::Schema.define(:version => 20120706223738) do
   create_table "downloads", :force => true do |t|
     t.string   "url"
     t.string   "filetype"
+    t.integer  "filesize"
+    t.datetime "last_modified"
     t.integer  "book_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "publishers", :force => true do |t|

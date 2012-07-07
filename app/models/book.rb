@@ -5,4 +5,5 @@ class Book < ActiveRecord::Base
 
   belongs_to :author
   has_one    :publisher
+  has_many   :downloads
 end

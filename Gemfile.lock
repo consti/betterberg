@@ -1,8 +1,9 @@
 GIT
   remote: git://github.com/consti/gutenberg.git
-  revision: f40965afaf362567983421224dba5bb71fe2cd52
+  revision: 7976f79d66a63639bc7597edca66f2b053fb1487
   specs:
-    gutenberg (0.0.1)
+    gutenberg (0.0.2)
+      equivalent-xml
       rdf
       rdf-rdfxml
 
@@ -55,6 +56,8 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    equivalent-xml (0.2.9)
+      nokogiri (>= 1.4.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
