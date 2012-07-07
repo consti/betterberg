@@ -7,6 +7,14 @@
   %br
   = @book.title
 %p
+  %strong= model_class.human_attribute_name(:friendlytitle) + ':'
+  %br
+  = @book.friendlytitle
+%p
+  %strong= model_class.human_attribute_name(:rights) + ':'
+  %br
+  = @book.rights
+%p
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
   = @book.description
@@ -14,6 +22,18 @@
   %strong= model_class.human_attribute_name(:author_id) + ':'
   %br
   = @book.author_id
+%p
+  %strong= model_class.human_attribute_name(:publisher_id) + ':'
+  %br
+  = @book.publisher_id
+%p
+  %strong= model_class.human_attribute_name(:gutenberg_id) + ':'
+  %br
+  = @book.gutenberg_id
+%p
+  %strong= model_class.human_attribute_name(:google_books_id) + ':'
+  %br
+  = @book.google_books_id
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), books_path, :class => 'btn'

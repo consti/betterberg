@@ -4,6 +4,14 @@
     .controls
       = f.text_field :title, :class => 'text_field'
   .control-group
+    = f.label :friendlytitle, :class => 'control-label'
+    .controls
+      = f.text_field :friendlytitle, :class => 'text_field'
+  .control-group
+    = f.label :rights, :class => 'control-label'
+    .controls
+      = f.text_field :rights, :class => 'text_field'
+  .control-group
     = f.label :description, :class => 'control-label'
     .controls
       = f.text_area :description, :class => 'text_area'
@@ -11,6 +19,18 @@
     = f.label :author_id, :class => 'control-label'
     .controls
       = f.number_field :author_id, :class => 'number_field'
+  .control-group
+    = f.label :publisher_id, :class => 'control-label'
+    .controls
+      = f.number_field :publisher_id, :class => 'number_field'
+  .control-group
+    = f.label :gutenberg_id, :class => 'control-label'
+    .controls
+      = f.number_field :gutenberg_id, :class => 'number_field'
+  .control-group
+    = f.label :google_books_id, :class => 'control-label'
+    .controls
+      = f.text_field :google_books_id, :class => 'text_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), books_path, :class => 'btn'

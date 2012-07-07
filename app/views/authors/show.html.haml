@@ -10,6 +10,26 @@
   %strong= model_class.human_attribute_name(:about) + ':'
   %br
   = @author.about
+%p
+  %strong= model_class.human_attribute_name(:birthdate) + ':'
+  %br
+  = @author.birthdate
+%p
+  %strong= model_class.human_attribute_name(:deathdate) + ':'
+  %br
+  = @author.deathdate
+%p
+  %strong= model_class.human_attribute_name(:alias) + ':'
+  %br
+  = @author.alias
+%p
+  %strong= model_class.human_attribute_name(:webpage) + ':'
+  %br
+  = @author.webpage
+%p
+  %strong= model_class.human_attribute_name(:gutenberg_id) + ':'
+  %br
+  = @author.gutenberg_id
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), authors_path, :class => 'btn'

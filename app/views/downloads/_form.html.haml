@@ -8,6 +8,14 @@
     .controls
       = f.text_field :filetype, :class => 'text_field'
   .control-group
+    = f.label :filesize, :class => 'control-label'
+    .controls
+      = f.number_field :filesize, :class => 'number_field'
+  .control-group
+    = f.label :last_modified, :class => 'control-label'
+    .controls
+      = f.datetime_select :last_modified, :class => 'datetime_select'
+  .control-group
     = f.label :book_id, :class => 'control-label'
     .controls
       = f.number_field :book_id, :class => 'number_field'

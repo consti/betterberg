@@ -1,7 +1,4 @@
-%h1 Editing publisher
-
-= render 'form'
-
-= link_to 'Show', @publisher
-\|
-= link_to 'Back', publishers_path
+- model_class = @publisher.class
+.page-header
+  %h1=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}")
+= render :partial => "form"

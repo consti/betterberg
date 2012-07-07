@@ -1,21 +1,23 @@
-%h1 Listing publishers
-
-%table
-  %tr
-    %th Url
-    %th Name
-    %th
-    %th
-    %th
-
-  - @publishers.each do |publisher|
+- model_class = Publisher.new.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
     %tr
-      %td= publisher.url
-      %td= publisher.name
-      %td= link_to 'Show', publisher
-      %td= link_to 'Edit', edit_publisher_path(publisher)
-      %td= link_to 'Destroy', publisher, :confirm => 'Are you sure?', :method => :delete
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:url)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @publishers.each do |publisher|
+      %tr
+        %td= link_to publisher.id, publisher_path(publisher)
+        %td= publisher.url
+        %td= publisher.name
+        %td=l publisher.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_publisher_path(publisher), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), publisher_path(publisher), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Publisher', new_publisher_path
+= link_to t('.new', :default => t("helpers.links.new")), new_publisher_path, :class => 'btn btn-primary'

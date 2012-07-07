@@ -6,8 +6,13 @@
     %tr
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:title)
+      %th= model_class.human_attribute_name(:friendlytitle)
+      %th= model_class.human_attribute_name(:rights)
       %th= model_class.human_attribute_name(:description)
       %th= model_class.human_attribute_name(:author_id)
+      %th= model_class.human_attribute_name(:publisher_id)
+      %th= model_class.human_attribute_name(:gutenberg_id)
+      %th= model_class.human_attribute_name(:google_books_id)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -15,8 +20,13 @@
       %tr
         %td= link_to book.id, book_path(book)
         %td= book.title
+        %td= book.friendlytitle
+        %td= book.rights
         %td= book.description
         %td= book.author_id
+        %td= book.publisher_id
+        %td= book.gutenberg_id
+        %td= book.google_books_id
         %td=l book.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_book_path(book), :class => 'btn btn-mini'

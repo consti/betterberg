@@ -11,6 +11,14 @@
   %br
   = @download.filetype
 %p
+  %strong= model_class.human_attribute_name(:filesize) + ':'
+  %br
+  = @download.filesize
+%p
+  %strong= model_class.human_attribute_name(:last_modified) + ':'
+  %br
+  = @download.last_modified
+%p
   %strong= model_class.human_attribute_name(:book_id) + ':'
   %br
   = @download.book_id

@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120706223738) do
     t.string   "friendlytitle"
     t.string   "rights"
     t.text     "description"
+    t.string   "language"
     t.integer  "author_id"
     t.integer  "publisher_id"
     t.integer  "gutenberg_id"

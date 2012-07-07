@@ -7,6 +7,8 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:url)
       %th= model_class.human_attribute_name(:filetype)
+      %th= model_class.human_attribute_name(:filesize)
+      %th= model_class.human_attribute_name(:last_modified)
       %th= model_class.human_attribute_name(:book_id)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
@@ -16,6 +18,8 @@
         %td= link_to download.id, download_path(download)
         %td= download.url
         %td= download.filetype
+        %td= download.filesize
+        %td= download.last_modified
         %td= download.book_id
         %td=l download.created_at
         %td

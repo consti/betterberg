@@ -1,12 +1,17 @@
-%p#notice= notice
+- model_class = @publisher.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
 
 %p
-  %b Url:
+  %strong= model_class.human_attribute_name(:url) + ':'
+  %br
   = @publisher.url
 %p
-  %b Name:
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
   = @publisher.name
 
-= link_to 'Edit', edit_publisher_path(@publisher)
-\|
-= link_to 'Back', publishers_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), publishers_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_publisher_path(@publisher), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), publisher_path(@publisher), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

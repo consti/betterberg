@@ -7,6 +7,26 @@
     = f.label :about, :class => 'control-label'
     .controls
       = f.text_field :about, :class => 'text_field'
+  .control-group
+    = f.label :birthdate, :class => 'control-label'
+    .controls
+      = f.date_select :birthdate, :class => 'date_select'
+  .control-group
+    = f.label :deathdate, :class => 'control-label'
+    .controls
+      = f.date_select :deathdate, :class => 'date_select'
+  .control-group
+    = f.label :alias, :class => 'control-label'
+    .controls
+      = f.text_field :alias, :class => 'text_field'
+  .control-group
+    = f.label :webpage, :class => 'control-label'
+    .controls
+      = f.text_field :webpage, :class => 'text_field'
+  .control-group
+    = f.label :gutenberg_id, :class => 'control-label'
+    .controls
+      = f.number_field :gutenberg_id, :class => 'number_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), authors_path, :class => 'btn'
