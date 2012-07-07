@@ -2,51 +2,49 @@ namespace :books do
   namespace :gutenberg do
     desc "import from gutenberg catalog file"
     task :import_from_catalog => :environment do      
-      Gutenberg::Catalog::Parser.new(ENV['CATALOG_FILE']).books.each do |book|
-        Author.find_or_create_by_name(book.creator).
-          books.find_or_create_by_gutenberg_id(book.book_id) do |b|
-            b.title         = book.title
-            b.friendlytitle = book.friendlytitle
-            b.rights        = book.rights
-            b.publisher     = Publisher.find_or_create_by_name(book.publisher)
-          end
-      end  
+      Gutenberg::Catalog::Parser.new(ENV['CATALOG_FILE']).books.each do |gb|
+        Book.find_or_create_by_gutenberg_id(gb.book_id) do |book|
+          book.title         = gb.title
+          book.friendlytitle = gb.friendlytitle
+          book.rights        = gb.rights
+          book.publisher     = Publisher.find_or_create_by_name(gb.publisher)
+        end
+      end
     end
 
     desc "import meta data for all books"
     task :get_meta_data => :environment do
       Book.where("gutenberg_id IS NOT null").find_each do |book|
-        b = Gutenberg::Book.new(book.gutenberg_id)
+        gb = Gutenberg::Book.new(book.gutenberg_id)
         
         # Query gutenberg.org
-        b.get_data
-
-        # Get the book language
-        book.language ||= b.language
-        book.save
+        gb.get_data
 
         # Add the downloads
-        b.downloads.each do |download|
-          book.downloads.find_or_create_by_url(download.url) do |d|
-            d.filesize = download.extent
-            d.last_modified = Date.parse(download.modified)
+        gb.downloads.each do |gb_download|
+          book.downloads.find_or_create_by_url(gb_download.url.truncate(255)) do |download|
+            download.filesize = gb_download.extent
+            download.last_modified = Date.parse(gb_download.modified)
             # TODO d.fileype = ...
           end  
         end
         
         # Add the author meta data
-        author = book.author
-        author.name         ||= b.author.name
-        author.alias        ||= b.author.alias
+        author =  Author.find_or_create_by_gutenberg_id(gb.author.author_id) do |author|
+                    author.name    = gb.author.name
+                    author.alias   = gb.author.alias
+                    author.webpage = gb.author.webpage
+                    %w(birthdate deathdate).each do |date|
+                      if gb.author.send(date).match(/\d\d\d\d/)
+                        author.send("#{ date }=", Date.strptime(gb.author.send(date), "%Y")) 
+                      end
+                    end
+                  end
 
-        %w(birthdate deathdate).each do |date|
-          if b.author.send(date).match(/\d\d\d\d/)
-            author.send("#{ date }=", Date.strptime(b.author.send(date), "%Y")) 
-          end
-        end
-        author.webpage      ||= b.author.webpage
-        author.gutenberg_id ||= b.author.author_id
-        author.save
+        # Get the book language
+        book.language ||= gb.language
+        book.author = author
+        book.save
       end
     end
   end
