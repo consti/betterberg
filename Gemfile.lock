@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/consti/gutenberg.git
-  revision: b5964fbefa9cf0f9ccb08f0009a15336f46a6b83
+  revision: 5f179d2e0c594a25c9aeb86e68ea7b7954674e6f
   specs:
-    gutenberg (0.0.5)
+    gutenberg (0.0.7)
       equivalent-xml
       rdf
       rdf-rdfxml
