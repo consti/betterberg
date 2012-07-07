@@ -15,11 +15,10 @@ ActiveRecord::Schema.define(:version => 20120706223738) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
-    t.string   "about"
     t.date     "birthdate"
     t.date     "deathdate"
     t.string   "alias"
-    t.string   "webpage"
+    t.text     "webpage"
     t.integer  "gutenberg_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

@@ -5,7 +5,7 @@ class CreateAuthors < ActiveRecord::Migration
       t.date   :birthdate
       t.date   :deathdate
       t.string :alias
-      t.string :webpage
+      t.text :webpage
       t.integer :gutenberg_id
 
       t.timestamps
